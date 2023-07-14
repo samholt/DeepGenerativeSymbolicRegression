@@ -1,0 +1,60 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  - id: trailing-whitespace
+    exclude: ^libs/
+    args: ['--markdown-linebreak-ext=md']
+  - id: check-added-large-files
+    args: ['--maxkb=1000']
+  - id: check-ast
+  - id: check-case-conflict
+  - id: check-merge-conflict
+  - id: check-toml
+    exclude: ^libs/
+  - id: check-yaml
+    exclude: ^libs/
+  - id: check-executables-have-shebangs
+    exclude: ^libs/
+  - id: debug-statements
+    exclude: ^libs/
+  - id: end-of-file-fixer
+    exclude: ^libs/
+  - id: requirements-txt-fixer
+    exclude: ^libs/
+  - id: mixed-line-ending
+    args: ['--fix=auto']
+
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  rev: v2.8.0
+  hooks:
+  - id: pretty-format-toml
+    exclude: ^libs/
+    args: [--autofix]
+
+- repo: https://github.com/pycqa/isort
+  rev: 5.12.0
+  hooks:
+  - id: isort
+    exclude: ^libs/
+
+- repo: https://github.com/psf/black
+  rev: 23.1.0
+  hooks:
+  - id: black-jupyter
+    exclude: ^libs/
+    language_version: python3
+
+- repo: https://github.com/PyCQA/flake8
+  rev: 6.0.0
+  hooks:
+  - id: flake8
+    exclude: ^libs/
+
+- repo: https://github.com/PyCQA/bandit
+  rev: 1.7.5
+  hooks:
+  - id: bandit
+    exclude: ^libs/
+    args: ["-c", "pyproject.toml", "-q", "-lll"]
+    additional_dependencies: ["bandit[toml]"]
