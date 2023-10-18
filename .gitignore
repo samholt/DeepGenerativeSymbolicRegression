@@ -1,8 +1,6 @@
-*.txt
-config.json
-*.pt
-*.ckpt
-
+models/nesymres_pre_train/*
+!models/nesymres_pre_train/README.md
+!models/nesymres_pre_train/.gitkeep
 .env
 logs/*
 env/*

@@ -7,7 +7,8 @@ pip install --upgrade pip
 pip install "setuptools<58.0.0"  # Required for installing deap==1.3.0
 
 # Install dependencies:
-conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+pip3 install torch torchvision torchaudio
+# conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
 # ^ Or use the pip alternative torch installation command from https://pytorch.org/get-started/locally/
 # Choose a different version of CUDA or CPU-only, as needed.
 pip install -r requirements.txt
@@ -27,4 +28,4 @@ pip install -e ./src/
 cd ../..
 
 # Optional. For library development, install developement dependencies.
-pip install -r requirements-dev.txt
+pip install -r requirements.txt

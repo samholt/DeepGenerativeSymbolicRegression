@@ -3,17 +3,10 @@
 This repository is the official implementation of the paper [Deep Generative Symbolic Regression](https://openreview.net/forum?id=o7koEEMA1bR).
 
 
-1. Run/Follow steps in [install.sh](install.sh)
-2. Replicate experimental results by running and configuring [run_recovery_multi.py](run_recovery_multi.py)
-3. Process the output log file using [process_logs.py](process_results/process_logs.py) by updating the `LOG_PATH` variable to point to the recently generated log file
-
-
-
-#### Large files:
-To automatically download and extract the pre-trained models into the right folders run the file [download_pre_trained_models.py](download_pre_trained_models.py) from the root directory of this repository. This will download the pre-trained models and place them into the correct folders, including the results used for the paper in [`process_results/results/`](process_results/results/).
-
-Alternatively, this can be manually downloaded and unzipped from the following link https://drive.google.com/file/d/1tZcyDKT2GeP35fTnnddiiUC3ow6OVcIF
-
+1. Run/Follow steps in [install.sh](install.sh).
+2. Download the baseline pre-trained models for NeuralSymbolicRegressionThatScales from [https://github.com/SymposiumOrganization/NeuralSymbolicRegressionThatScales](https://github.com/SymposiumOrganization/NeuralSymbolicRegressionThatScales) and put them into the folder [models/nesymres_pre_train](models/nesymres_pre_train).
+3. Replicate experimental results by running and configuring [run_recovery_multi.py](run_recovery_multi.py).
+4. Process the output log file using [process_logs.py](process_results/process_logs.py) by updating the `LOG_PATH` variable to point to the recently generated log file.
 
 
 #### Configuring experiments:

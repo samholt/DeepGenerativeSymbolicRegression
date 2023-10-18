@@ -206,10 +206,8 @@ def perform_run(tuple_in):
 
 def main(dataset, n_cores_task=conf.exp.n_cores_task):
     if not os.path.exists(PATH_TO_CHECK_IF_EXISTS):
-        print("Downloading pre-trained models and results for the first and only time... (this may take a few minutes)")
-        from download_pre_trained_models import download_pre_trained_models_and_results
-
-        download_pre_trained_models_and_results()
+        print("Path does not exist.")
+        raise ValueError("Path does not exist.")
     task_inputs = []
     for seed in range(conf.exp.seed_start, conf.exp.seed_start + conf.exp.seed_runs):
         for baseline in conf.exp.baselines:
@@ -257,8 +255,6 @@ if __name__ == "__main__":
             # pylint: disable-next=raise-missing-from
             raise ValueError(
                 f"No pre-trained model in folder './models/pre_train/' for covars={covars}. "
-                "Please download the pre-trained models. See README.md for more details. "
-                "Or alternatively, run 'download_pre_trained_models.py' to download the pre-trained models."
             )
             # pre_trained_model = ""
         nesymres_dataset_config = nesymres_dataset_config_factory()
@@ -273,7 +269,5 @@ if __name__ == "__main__":
             # pylint: disable-next=raise-missing-from
             raise FileNotFoundError(
                 f"No pre-trained model of {e.filename} in folder './models/pre_train/' for covars={covars}. "
-                "Please download the pre-trained models. See README.md for more details. Or alternatively, "
-                "run 'download_pre_trained_models.py' to download the pre-trained models."
             )
     logger.info("Fin.")
