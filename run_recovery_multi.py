@@ -267,7 +267,12 @@ if __name__ == "__main__":
             main(dataset)
         except FileNotFoundError as e:
             # pylint: disable-next=raise-missing-from
-            raise FileNotFoundError(
-                f"No pre-trained model of {e.filename} in folder './models/pre_train/' for covars={covars}. "
-            )
+            if 'nesymres_pre_train' in str(e):
+                raise FileNotFoundError(
+                    f"Please download the baseline pre-trained models for NeuralSymbolicRegressionThatScales from https://github.com/SymposiumOrganization/NeuralSymbolicRegressionThatScales and put them into the folder `models/nesymres_pre_train`. No pre-trained model of {e.filename} in folder './models/pre_train/' for covars={covars}. "
+                )
+            else:                
+                raise FileNotFoundError(
+                    f"No pre-trained model of {e.filename} in folder './models/pre_train/' for covars={covars}. "
+                )
     logger.info("Fin.")
